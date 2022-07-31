@@ -1,0 +1,14 @@
+//WHERE FILTER
+select id, name, MailingCity from Contact WHERE MailingCity = 'Paris'
+
+//WHERE with wildcard '%'
+select id, Name, Birthdate, MailingCity, MailingCountry from Contact WHERE Name LIKE '%A%'
+
+//not equal to (!=)
+select id, name, phone from ACcount WHERE phone != null
+
+//AND and OR
+select id, name, phone, website, accountNumber from account WHERE (phone !=NULL or website !=null) and accountNumber != null
+
+//Limit
+select id, name, CreatedDate from Account ORDER BY CreatedDate DESC Limit 1
