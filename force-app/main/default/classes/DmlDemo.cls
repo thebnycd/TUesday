@@ -13,7 +13,7 @@ public  class DmlDemo {
     }
     public static void dmlInsertDemo_cstmObj(){
         salesforce_project__c sp = new salesforce_project__c();
-        sp.profect_name__c = 'Teach DML to falcons';
+        sp.project_name__c = 'Teach DML to falcons';
         sp.description__c = 'All 40% are great learners';
         insert sp;
         system.debug(sp);

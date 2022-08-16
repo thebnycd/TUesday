@@ -8,7 +8,7 @@ public  class Calculator2 {
         return sum;
     }
 
-    public static integer add (integer num1, integer num2, Integer num3){
+    public static integer add (integer num1, integer num2, integer num3){
         integer sum = num1 + num2 + num3;
         return sum;
     }
