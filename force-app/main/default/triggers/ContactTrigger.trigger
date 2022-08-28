@@ -2,6 +2,11 @@ trigger ContactTrigger on Contact (before insert, before update,  after insert, 
     system.debug('====Trigger START====');
     //create a set of ids to store account ids
     //account id of all updated/inserted/deleted/undeleted contact ids
+    if (Trigger.isBefore && trigger.isUpdate) {
+        ContactTriggerHandler.contactUpdateValidation1(trigger.new, trigger.newMap, trigger.old, trigger.oldMap);
+        ContactTriggerHandler.contactUpdateValidation2(trigger.new, trigger.newMap, trigger.old, trigger.oldMap);
+    }
+    
     if(trigger.isAfter){
         Set<Id> accountIds = new set<id>();
 

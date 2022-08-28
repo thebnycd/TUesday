@@ -44,10 +44,14 @@ public with sharing class SalesforceProjectHandler {
         try{
             //create one empty list of ticket
             List<Salesforce_Ticket__c> newSTList = new List<Salesforce_Ticket__c>();
+            //customSettingName.getOrgDEfaults() --> It will return ORG Default value.
+            defaultticketInfo__c ticketInfo = DefaultTicketInfo__c.getOrgDefaults();
             for (salesforce_project__c eachSP : spTriggerNew) {
                 Salesforce_Ticket__c st = new Salesforce_Ticket__c();
-                st.Subject__c = 'Default ST';
+                st.Subject__c = ticketInfo.Subject__c;
                 st.Salesforce_Project__c = eachSP.id;
+                st.Priority__c = 'High';
+                st.Description__c = ticketInfo.description__c;
                 newSTList.add(st);
             }
             if(!newSTList.isEmpty()){

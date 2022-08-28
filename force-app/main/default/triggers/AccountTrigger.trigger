@@ -8,6 +8,12 @@ trigger AccountTrigger on Account (before insert, before update, after insert, a
         AccountTriggerHAndler.updateVIPForAllContacts(Trigger.new, trigger.old, trigger.newMap, trigger.oldMap);
     }
 
+    if (trigger.isAfter && trigger.isInsert) {
+        // AccountsQueueableExample aq = new AccountsQueueableExample (trigger.new);
+        // Id jobId = system.enqueueJob(aq);
+        // system.debug('job id is ....' + jobId);
+    }
+
     // if(trigger.isbefore && trigger.isUpdate){
     //     AccountTriggerHandlerPractice.validationAnnualRev(trigger.new, trigger.oldMap);
     // }
